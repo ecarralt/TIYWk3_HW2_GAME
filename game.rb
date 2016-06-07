@@ -3,11 +3,15 @@ class Game
 
   def play
     puts "Ready to play? Choose (r)ock, (p)aper or (s)cissors. Just write the first letter of each"
-    @player_one_choice = gets.chomp
-    # puts "your choice is #{player_one_choice}"
+    @player_one_choice = gets.chomp.downcase
+
+    if (@player_one_choice != "r" && @player_one_choice != "p" && @player_one_choice != "s")
+      puts "Oops,that is not a valid choice! Please play again"
+      exit
+    else
+    end
 
     game_choices = ["r", "p", "s"]
-
     @computer = game_choices.sample
 
     case @player_one_choice
@@ -19,8 +23,6 @@ class Game
       player_disp = "SCISORS"
     end
 
-    # puts player_disp
-
     case @computer
     when "r"
       computer_disp = "ROCK"
@@ -29,9 +31,6 @@ class Game
     when "s"
       computer_disp = "SCISORS"
     end
-
-    # puts computer_disp
-    # puts "The computer's choice is #{computer}"
 
     case player_one_choice
     when "r"
@@ -65,6 +64,4 @@ class Game
 end
 
 game = Game.new
-
-
 game.play
