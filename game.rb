@@ -22,7 +22,7 @@ class Game
     when "s"
       player_disp = "SCISORS"
     end
-
+    
     case @computer
     when "r"
       computer_disp = "ROCK"
